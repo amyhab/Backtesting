@@ -1302,6 +1302,10 @@ class Backtest(object):
         w300 = self.weight_300
         plt.plot(w300)
         plt.xticks(fontsize=8)
+        k = 0
+        while w300[k]==0:
+            k = k + 1
+        w300 = w300[k:len(w300)]
         titlenum = np.mean(w300)*100
         plt.title('weight of 300 average='+'%.2f'%(titlenum),fontsize =8)
         pp.savefig()
