@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Thu Jan 04 09:44:01 2018
 Function：backtest by stock seleced by factor from target stock pool
@@ -1102,8 +1102,8 @@ class Backtest(object):
         """Backtesting core
         Generate backtesting data from day to day
         Note: in the backtesting core, we suppose we get the factor and target portfolio(stock and weight) after a tradeday close
-              and then modify the weight dut to nextday's VWAP(target buying quantity fixed) as actual trading portfolio 
-              and trade at price VWAP, there may be a little hypothesis error and it's quite close to actual trading
+              and then modify the weight due to nextday's VWAP(target buying quantity fixed) as actual trading portfolio 
+              and trade at price VWAP, there may be a little hypothesis error but it's quite close to actual trading
               so the earning one day is divided into preclose to VWAP of last tradeday's portfolio and VWAP to close of today's portfolio
         """
         if (self.index<>'000906') and (self.index<>self.hedge_target):
@@ -1346,6 +1346,3 @@ class Backtest(object):
             for j in xrange(len(strategy_valuate[i])):
                 ws.cell(row=i+2,column=j+2).value = strategy_valuate[i][j]
         ew.save(filename=path2)  
-        
-    
-    
